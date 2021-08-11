@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<!-- saved from url=(0022)http://localhost:8080/ -->
+<html lang=""><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0">
+    <link rel="icon" href="./favicon.ico">
+    <title>monster_game</title>
+  <link href="./monster_game_files/app.js.download" rel="preload" as="script"><link href="./monster_game_files/chunk-vendors.js.download" rel="preload" as="script"><style type="text/css">
+*{
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+#app{
+  height: 100vh;
+  background-image: url('https://readvii.com/wp-content/uploads/2020/04/sach-hay-ve-quai-vat-cover-780x470.png');
+}
+.figure{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+.figure__item{
+  width: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.figure__item__name{
+  font-size: 2rem;
+  margin-bottom: 20px;
+}
+.figure__item__img{
+  height: 400px;
+}
+.figure__item__img--link{
+  height: 100%;
+}
+.figure__item__HP{
+  margin-top: 20px;
+  width: 200px;
+  height: 20px;
+  background-color: rgb(133, 144, 163);
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+}
+.figure__item__HP--percen{
+  position: absolute;
+  height: 20px;
+  background-color: crimson;
+  transition: width .5s;
+}
+.figure__item__HP--percen-details{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.action{
+  margin-top: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.action__start,
+.action__skill{
+  border: 3px solid #ccc;
+  width: 600px;
+  height: 80px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.action__start__btn,
+.action__skill__item{
+  background-color: darkgreen;
+  color: #fff;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+.action__skill__item{
+  margin-right: 5px;
+  color: #000;
+}
+.ATTACK{
+  background-color: rgb(255, 0, 0);
+}
+.SPECIAL{
+  background-color: gold;
+}
+.HEAL{
+  background-color: rgb(186, 102, 247);
+}
+.GIVE_UP{
+  background-color: ivory;
+}
+.log{
+  margin-top: 10px;
+  width: 600px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 3px solid #ccc;
+}
+</style></head>
+  <body>
+    <noscript>
+      <strong>We're sorry but monster_game doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+    </noscript>
+    <div id="app"><div class="figure"><div class="figure__item"><div class="figure__item__name"><h3>You</h3></div><div class="figure__item__img"><img src="./monster_game_files/you.png" alt="" class="figure__item__img--link"></div><div class="figure__item__HP"><div class="figure__item__HP--percen" style="width: 50%;"></div><div class="figure__item__HP--percen-details">50</div></div></div><div class="figure__item"><div class="figure__item__name"><h3>Monster</h3></div><div class="figure__item__img"><img src="./monster_game_files/monster.png" alt="" class="figure__item__img--link"></div><div class="figure__item__HP"><div class="figure__item__HP--percen" style="width: 50%;"></div><div class="figure__item__HP--percen-details">50</div></div></div></div><div class="action"><div class="action__start"><button class="action__start__btn">START NEW GAME</button></div><!----></div></div>
+    <!-- built files will be auto injected -->
+  <script type="text/javascript" src="./monster_game_files/chunk-vendors.js.download"></script><script type="text/javascript" src="./monster_game_files/app.js.download"></script>
+
+</body></html>
