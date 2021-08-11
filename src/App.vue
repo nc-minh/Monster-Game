@@ -33,6 +33,7 @@
         @click="startNewGame"
         >START NEW GAME</button>
       </div>
+
       <div class="action__skill" v-else>
         <button class="action__skill__item ATTACK"
         @click="ATTACK"
@@ -47,6 +48,11 @@
         @click="GIVE_UP"
         >GIVE UP</button>
       </div>
+
+      <div class="log" v-if="isStart">
+        <div :style="{color: 'red'}">{{ log[0] }}</div>
+        <div :style="{color: 'blue'}">{{ log[1] }}</div>  
+      </div>
     </div>
   </div>
 </template>
@@ -60,6 +66,7 @@ export default {
       isStart: false,
       playerHP: 50,
       monsterHP: 50,
+      log: ['ATTACK LOG', ''],
     }
   },
   methods:{
@@ -67,21 +74,30 @@ export default {
       this.isStart = true;
       this.playerHP = 100;
       this.monsterHP = 100;
+      this.log = ['ATTACK LOG', ''];
     },
     ATTACK: function(){
       //check
-      this.monsterHP -= this.inputDamage(3, 15);
+      var damage = this.inputDamage(3, 15);
+      this.monsterHP -= damage;
+      this.log[0] = 'Bạn tấn công quái vật ' + damage;
       
       //player
-      this.playerHP -= this.inputDamage(3, 15);
+      damage = this.inputDamage(3, 15);
+      this.playerHP -= damage;
+      this.log[1] = 'Quái vật tấn công bạn ' + damage;
 
       this.checkPlayerOptions()
     },
     SPECIAL: function(){
-      this.monsterHP -= this.inputDamage(15, 20);
+      var damage = this.inputDamage(15, 20);
+      this.monsterHP -=damage
+      this.log[0] = 'Bạn tấn công đặc biệt quái vật ' + damage;
       
       //player
-      this.playerHP -= this.inputDamage(15, 20);
+      damage = this.inputDamage(15, 20);
+      this.playerHP -= damage;
+      this.log[1] = 'Quái vật tấn công đặc biệt bạn ' + damage;
 
       this.checkPlayerOptions()
     },
@@ -91,14 +107,18 @@ export default {
         return false;
       }else if(this.playerHP <= 60){
         this.playerHP += 10;
+        this.log[0] = 'Bạn đã hồi ' + 10 + ' HP';
       }else{
         this.playerHP = 70;
       }
-      this.playerHP -= this.inputDamage(3, 15);
+      var damage = this.inputDamage(3, 15);
+      this.playerHP -= damage
+      this.log[1] = 'Quái vật tấn công bạn khi đang bơm HP ' + damage;
 
     },
     GIVE_UP: function(){
-
+      this.isStart = false;
+      alert('Bạn đã bỏ cuộc!')
     },
     inputDamage: function(minDamage, maxDamage){
       return Math.max(Math.floor(Math.random() * maxDamage) + 1, minDamage)
@@ -138,6 +158,12 @@ export default {
   margin: 0;
   box-sizing: border-box;
 }
+
+#app{
+  height: 100vh;
+  background-image: url('https://readvii.com/wp-content/uploads/2020/04/sach-hay-ve-quai-vat-cover-780x470.png');
+}
+
 .figure{
   display: flex;
   justify-content: center;
@@ -234,5 +260,16 @@ export default {
 
 .GIVE_UP{
   background-color: ivory;
+}
+
+.log{
+  margin-top: 10px;
+  width: 600px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  border: 3px solid #ccc;
 }
 </style>
